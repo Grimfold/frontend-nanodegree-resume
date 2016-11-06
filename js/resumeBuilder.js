@@ -1,6 +1,5 @@
 // First, the data objects
 
-
 var bio = {
   "name" : "Mark Llewellyn James",
   "role" : "Occasional Web Developer",
@@ -87,41 +86,23 @@ if (bio.skills.length > 0) {
   $("#skills").append(HTMLskills.replace("%data%", bio.skills));
 }
 
-for (job in work){
-  if (work.hasOwnProperty(job)) {
-    $("#workExperience").append(HTMLworkStart);
-    $(".work-entry:last").append((HTMLworkEmployer.replace("%data%", work[job].employer))+(HTMLworkTitle.replace("%data%", work[job].title)));
-    $(".work-entry:last").append((HTMLworkLocation.replace("%data%", work[job].location)));
-    $(".work-entry:last").append((HTMLworkDates.replace("%data%", work[job].dates)));
-    $(".work-entry:last").append((HTMLworkDescription.replace("%data%", work[job].description)));
-    //console.log(work[job]);
+function displayWork() {
+  for (job in work){
+    if (work.hasOwnProperty(job)) {
+      $("#workExperience").append(HTMLworkStart);
+      $(".work-entry:last").append((HTMLworkEmployer.replace("%data%", work[job].employer))+(HTMLworkTitle.replace("%data%", work[job].title)));
+      $(".work-entry:last").append((HTMLworkLocation.replace("%data%", work[job].location)));
+      $(".work-entry:last").append((HTMLworkDates.replace("%data%", work[job].dates)));
+      $(".work-entry:last").append((HTMLworkDescription.replace("%data%", work[job].description)));
+      //console.log(work[job]);
+    }
   }
 }
 
+displayWork();
 
-/*
-var formattedName = HTMLheaderName.replace("%data%", bio.myname);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedEmail = HTMLemail.replace("%data%", bio.email);
-var formattedPic = HTMLbioPic.replace("%data%", bio.pic);
-var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.msg);
-var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-
-var formattedSchoolName = HTMLschoolName.replace("%data%", education.uni);
-var formattedWorkPosition = HTMLworkTitle.replace("%data%", work.position);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedPic);
-$("#header").append(formattedMsg);
-$("#header").append(formattedSkills);
-
-$("#education").append(HTMLschoolStart);
-$("#education").append(formattedSchoolName);
-
-$("#workExperience").append(HTMLworkStart);
-$("#workExperience").append(formattedWorkPosition);
-
-$("#footerContacts").append(formattedEmail);
-
-*/
+$(document).click(function(loc) {
+  //console.log(loc.data);
+  //console.log(loc.pageX);
+  logClicks(loc.pageX, loc.pageY);
+});
