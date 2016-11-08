@@ -1,10 +1,10 @@
 // First, the data objects
 
 var bio = {
-  "name" : "Mark Llewellyn James",
+  "name" : "Mark James",
   "role" : "Occasional Web Developer",
   "contacts" : contacts,
-  "biopic" : "images/portrait-small.jpg",
+  "biopic" : "./images/portrait-small.jpg",
   "skills" : [
     "Networks & Systems Integration",
     "Network Management & OSS",
@@ -37,16 +37,41 @@ var work = [
   }
 ];
 
-var projects = [
-  {
-    "title": "Time Travel Project",
-    "dates": "2100-2120",
-    "description": "Time Machine Built",
-    "images": [
-      "/img/timewarp.jpg"
-    ]
+var projects = {
+  "projectEntry" : [
+    {
+      "title": "Time Travel Project",
+      "dates": "2100-2120",
+      "description": "Time Machine Built",
+      "images": [
+        "./images/timewarp.jpg"
+      ]
+    },
+    {
+      "title": "Narcissism Project",
+      "dates": "2012-2016",
+      "description": "Better Photos of me",
+      "images": [
+        "./images/portrait-small.jpg"
+      ]
+    }
+  ],
+};
+
+
+console.log(projects.projectEntry[0]);
+projects.display = function() {
+  for(var i = 0; i < projects.projectEntry.length; i++) {
+    $("#projects").append(HTMLprojectStart);
+    $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projectEntry[i].title));
+    $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projectEntry[i].dates));
+    $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projectEntry[i].description));
+    // Need to iterate over the array to display multiple images per project ?
+    $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projectEntry[i].images));
+    console.log(projects.projectEntry[i].title);
   }
-];
+}
+
 
 var education = {
   "schools": [
@@ -101,8 +126,30 @@ function displayWork() {
 
 displayWork();
 
+projects.display();
+
 $(document).click(function(loc) {
   //console.log(loc.data);
   //console.log(loc.pageX);
   logClicks(loc.pageX, loc.pageY);
 });
+
+// Internationalize button
+$("#main").append(internationalizeButton);
+
+function inName(oldName) {
+  //trim removes whitespace at fornt and back
+  var finalName = oldName.trim();
+  //console.log(finalName);
+  finalName = oldName.toUpperCase();
+  var names= finalName.split(" ");
+  //console.log(names);
+  capital = names[0].slice(0,1);
+  names[0] = names[0].slice(1);
+  //console.log(names[0]);
+  names[0] = names[0].toLowerCase();
+  names = capital + names[0] + " " +names[1];
+  return names;
+};
+
+inName(bio.name);
