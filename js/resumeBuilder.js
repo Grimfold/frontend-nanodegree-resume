@@ -3,7 +3,7 @@
 var bio = {
   "name" : "Mark James",
   "role" : "Occasional Web Developer",
-  "contacts" : contacts,
+  "contacts" : {},
   "biopic" : "./images/portrait-small.jpg",
   "skills" : [
     "Networks & Systems Integration",
@@ -13,29 +13,30 @@ var bio = {
     "welcomeMessage" : "Some notes about myself, for the purposes of Udacity Front End Developer course"
 };
 
-var contacts = {};
-contacts.mobile = "555-555-1234";
-contacts.email = "mlljuk@gmail.com";
-contacts.github = "Grimfold";
-contacts.twitter = "@mlljuk";
-contacts.location = "UK";
+bio.contacts.mobile = "555-555-1234";
+bio.contacts.email = "mlljuk@gmail.com";
+bio.contacts.github = "Grimfold";
+bio.contacts.twitter = "@mlljuk";
+bio.contacts.location = "UK";
 
-var work = [
-  {
-    "employer": "MLJ Networks Limited",
-    "title": "Consultant and Director",
-    "location": "UK",
-    "dates": "2010 - Present",
-    "description": "Independent Contractor focussing on Network Management and Systems Integration"
-  },
-  {
-    "employer": "EMC Smarts",
-    "title": "Solutions Architect",
-    "location": "UK and Europe",
-    "dates": "2007 - 2010",
-    "description": "Solution design and implementation for a wide range of European Telcos and Large Enterprises as part of EMC SMARTS Professional Services"
-  }
-];
+var work = {
+  "jobs" : [
+    {
+      "employer": "MLJ Networks Limited",
+      "title": "Consultant and Director",
+      "location": "UK",
+      "dates": "2010 - Present",
+      "description": "Independent Contractor focussing on Network Management and Systems Integration"
+    },
+    {
+      "employer": "EMC Smarts",
+      "title": "Solutions Architect",
+      "location": "UK and Europe",
+      "dates": "2007 - 2010",
+      "description": "Solution design and implementation for a wide range of European Telcos and Large Enterprises as part of EMC SMARTS Professional Services"
+    }
+  ]
+};
 
 var projects = {
   "projectEntry" : [
@@ -112,14 +113,13 @@ if (bio.skills.length > 0) {
 }
 
 function displayWork() {
-  for (job in work){
-    if (work.hasOwnProperty(job)) {
+  for (job in work.jobs){
+    if (work.jobs.hasOwnProperty(job)) {
       $("#workExperience").append(HTMLworkStart);
-      $(".work-entry:last").append((HTMLworkEmployer.replace("%data%", work[job].employer))+(HTMLworkTitle.replace("%data%", work[job].title)));
-      $(".work-entry:last").append((HTMLworkLocation.replace("%data%", work[job].location)));
-      $(".work-entry:last").append((HTMLworkDates.replace("%data%", work[job].dates)));
-      $(".work-entry:last").append((HTMLworkDescription.replace("%data%", work[job].description)));
-      //console.log(work[job]);
+      $(".work-entry:last").append((HTMLworkEmployer.replace("%data%", work.jobs[job].employer))+(HTMLworkTitle.replace("%data%", work.jobs[job].title)));
+      $(".work-entry:last").append((HTMLworkLocation.replace("%data%", work.jobs[job].location)));
+      $(".work-entry:last").append((HTMLworkDates.replace("%data%", work.jobs[job].dates)));
+      $(".work-entry:last").append((HTMLworkDescription.replace("%data%", work.jobs[job].description)));
     }
   }
 }
@@ -153,3 +153,7 @@ function inName(oldName) {
 };
 
 inName(bio.name);
+
+// googlemaps mashup ! Every mashup MUST use Googlemaps !
+
+$("#mapDiv").append(googleMap);
