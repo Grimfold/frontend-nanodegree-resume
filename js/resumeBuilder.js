@@ -3,21 +3,22 @@
 var bio = {
   "name" : "Mark James",
   "role" : "Occasional Web Developer",
-  "contacts" : {},
-  "biopic" : "./images/portrait-small.jpg",
+  "contacts" : {
+    "mobile" : "555-555-1234",
+    "email" : "mlljuk@gmail.com",
+    "github" : "Grimfold",
+    "twitter" : "@mlljuk",
+    "location" : "UK"
+  },
   "skills" : [
     "Networks & Systems Integration",
     "Network Management & OSS",
     "PS Team Building & Mentoring",
-    "Pragmatic Web Development"],
-    "welcomeMessage" : "Some notes about myself, for the purposes of Udacity Front End Developer course"
+    "Pragmatic Web Development"
+  ],
+  "welcomeMessage" : "Some notes about myself, for the purposes of Udacity Front End Developer course",
+  "biopic" : "./images/portrait-small.jpg",
 };
-
-bio.contacts.mobile = "555-555-1234";
-bio.contacts.email = "mlljuk@gmail.com";
-bio.contacts.github = "Grimfold";
-bio.contacts.twitter = "@mlljuk";
-bio.contacts.location = "UK";
 
 var work = {
   "jobs" : [
