@@ -47,7 +47,8 @@ var projects = {
       "dates": "2100 - 2120",
       "description": "Time Machine Built",
       "images": [
-        "./images/timewarp.jpg"
+        "./images/timewarp.jpg",
+        "./images/fry.jpg"
       ]
     },
     {
@@ -82,10 +83,16 @@ var education = {
   ],
   "onlineCourses": [
     {
-      "title": "",
-      "school": "",
-      "dates": "",
-      "url": ""
+      "title": "Front-End Web Developer Nanodegree",
+      "school": "Udacity",
+      "dates": "2016 - 2017",
+      "url": "www.udacity.com"
+    },
+    {
+      "title": "Intro to Computer Science",
+      "school": "Udacity",
+      "dates": "2012 - 2013",
+      "url": "www.udacity.com"
     }
   ]
 };
@@ -98,8 +105,9 @@ projects.display = function() {
     $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projectEntry[i].title));
     $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projectEntry[i].dates));
     $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projectEntry[i].description));
-    // Need to iterate over the array to display multiple images per project ?
-    $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projectEntry[i].images));
+    for(var j = 0; j < projects.projectEntry[i].images.length; j++) {
+      $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projectEntry[i].images[j]));
+    }
     console.log(projects.projectEntry[i].title);
   }
 }
@@ -114,7 +122,7 @@ if (bio.skills.length > 0) {
 }
 
 function displayWork() {
-  for (var i =0; i < work.jobs.length; i++) {
+  for (var i = 0; i < work.jobs.length; i++) {
       $("#workExperience").append(HTMLworkStart);
       $(".work-entry:last").append((HTMLworkEmployer.replace("%data%", work.jobs[i].employer))+(HTMLworkTitle.replace("%data%", work.jobs[i].title)));
       $(".work-entry:last").append((HTMLworkLocation.replace("%data%", work.jobs[i].location)));
