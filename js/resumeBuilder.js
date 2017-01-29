@@ -136,7 +136,9 @@ bio.display = function() {
   $("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
   $("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
   $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-  $("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+  if (bio.contacts.twitter.length > 0) {
+    $("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+  };
   $("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 }
 
