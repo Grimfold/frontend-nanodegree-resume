@@ -132,6 +132,12 @@ bio.display = function() {
     $("#header").append(HTMLskillsStart);
     $("#skills").append(HTMLskills.replace("%data%", bio.skills));
   }
+
+  $("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+  $("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+  $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+  $("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+  $("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 }
 
 education.display = function() {
