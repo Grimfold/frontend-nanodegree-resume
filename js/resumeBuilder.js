@@ -1,28 +1,26 @@
 // First, the data objects
-
 var bio = {
-  "name" : "Mark James",
-  "role" : "Occasional Web Developer",
-  "contacts" : {
-    "mobile" : "555-555-1234",
-    "email" : "mlljuk@gmail.com",
-    "github" : "Grimfold",
-    "twitter" : "@mlljuk",
-    "location" : "UK"
+  "name": "Mark James",
+  "role": "Occasional Web Developer",
+  "contacts": {
+    "mobile": "555-555-1234",
+    "email": "mlljuk@gmail.com",
+    "github": "Grimfold",
+    "twitter": "@mlljuk",
+    "location": "UK"
   },
-  "welcomeMessage" : "Some notes about myself, for the purposes of Udacity Front End Developer course",
-  "skills" : [
+  "welcomeMessage": "Some notes about myself, for the purposes of Udacity Front End Developer course",
+  "skills": [
     "Networks & Systems Integration",
     "Network Management & OSS",
     "PS Team Building & Mentoring",
     "Pragmatic Web Development"
   ],
-  "biopic" : "./images/portrait-small.jpg",
+  "biopic": "./images/portrait-small.jpg",
 };
 
 var work = {
-  "jobs" : [
-    {
+  "jobs": [{
       "employer": "MLJ Networks Limited",
       "title": "Consultant and Director",
       "location": "UK",
@@ -41,8 +39,7 @@ var work = {
 };
 
 var projects = {
-  "projectEntry" : [
-    {
+  "projectEntry": [{
       "title": "Time Travel Project",
       "dates": "2100 - 2120",
       "description": "Time Machine Built",
@@ -63,8 +60,7 @@ var projects = {
 };
 
 var education = {
-  "schools": [
-    {
+  "schools": [{
       "name": "University College London",
       "location": "London",
       "degree": "BSc",
@@ -81,8 +77,7 @@ var education = {
       "url": "http://www.gcs.ac.uk/"
     }
   ],
-  "onlineCourses": [
-    {
+  "onlineCourses": [{
       "title": "Front-End Web Developer Nanodegree",
       "school": "Udacity",
       "dates": "2016 - 2017",
@@ -102,27 +97,27 @@ var education = {
 
 //console.log(projects.projectEntry[0]);
 projects.display = function() {
-  for(var i = 0; i < projects.projectEntry.length; i++) {
+  for (var i = 0; i < projects.projectEntry.length; i++) {
     $("#projects").append(HTMLprojectStart);
     $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projectEntry[i].title));
     $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projectEntry[i].dates));
     $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projectEntry[i].description));
-    for(var j = 0; j < projects.projectEntry[i].images.length; j++) {
+    for (var j = 0; j < projects.projectEntry[i].images.length; j++) {
       $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projectEntry[i].images[j]));
     }
     //console.log(projects.projectEntry[i].title);
   }
-}
+};
 
 work.display = function() {
   for (var i = 0; i < work.jobs.length; i++) {
-      $("#workExperience").append(HTMLworkStart);
-      $(".work-entry:last").append((HTMLworkEmployer.replace("%data%", work.jobs[i].employer))+(HTMLworkTitle.replace("%data%", work.jobs[i].title)));
-      $(".work-entry:last").append((HTMLworkLocation.replace("%data%", work.jobs[i].location)));
-      $(".work-entry:last").append((HTMLworkDates.replace("%data%", work.jobs[i].dates)));
-      $(".work-entry:last").append((HTMLworkDescription.replace("%data%", work.jobs[i].description)));
+    $("#workExperience").append(HTMLworkStart);
+    $(".work-entry:last").append((HTMLworkEmployer.replace("%data%", work.jobs[i].employer)) + (HTMLworkTitle.replace("%data%", work.jobs[i].title)));
+    $(".work-entry:last").append((HTMLworkLocation.replace("%data%", work.jobs[i].location)));
+    $(".work-entry:last").append((HTMLworkDates.replace("%data%", work.jobs[i].dates)));
+    $(".work-entry:last").append((HTMLworkDescription.replace("%data%", work.jobs[i].description)));
   }
-}
+};
 
 bio.display = function() {
   // Need this line, or nothing gets displayed due to lack of h1 tag
@@ -138,25 +133,26 @@ bio.display = function() {
   $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
   if (bio.contacts.twitter.length > 0) {
     $("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-  };
+  }
   $("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
-}
+};
 
 education.display = function() {
   for (var i = 0; i < education.schools.length; i++) {
     $("#education").append(HTMLschoolStart);
-    $(".education-entry:last").append((HTMLschoolName.replace("%data%", education.schools[i].name))+(HTMLschoolDegree.replace("%data%", education.schools[i].degree)));
+    $(".education-entry:last").append((HTMLschoolName.replace("%data%", education.schools[i].name)) + (HTMLschoolDegree.replace("%data%", education.schools[i].degree)));
     $(".education-entry:last").append((HTMLschoolDates.replace("%data%", education.schools[i].dates)));
     $(".education-entry:last").append((HTMLschoolLocation.replace("%data%", education.schools[i].location)));
     $(".education-entry:last").append((HTMLschoolMajor.replace("%data%", education.schools[i].majors)));
-  };
+  }
   if (education.onlineCourses.length > 0) {
-    $(".education-entry:last").append(HTMLonlineClasses);
+    $("#education").append(HTMLonlineClasses);
+    $("#education").append(HTMLschoolStart);
     for (var i = 0; i < education.onlineCourses.length; i++) {
       $(".education-entry:last").append((HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title)));
     }
   }
-}
+};
 
 // Actually construct the page
 
