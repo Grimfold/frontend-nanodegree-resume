@@ -33,9 +33,10 @@ var work = {
     {
       "employer": "EMC Smarts",
       "title": "Solutions Architect",
-      "location": "UK and Europe",
+      // Makes map look more interesting than saying UK. Would be better to change locationFinder in helper,js to deal with multiple l.,ocations per job
+      "location": "Europe",
       "dates": "2007 - 2010",
-      "description": "Solution design and implementation for a wide range of European Telcos and Large Enterprises as part of EMC SMARTS Professional Services"
+      "description": "Solution design and implementation for a wide range of European Telcos and Large Enterprises as part of EMC SMARTS Professional Services."
     }
   ]
 };
