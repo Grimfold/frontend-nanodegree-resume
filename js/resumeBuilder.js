@@ -134,6 +134,22 @@ bio.display = function() {
   }
 }
 
+education.display = function() {
+  for (var i = 0; i < education.schools.length; i++) {
+    $("#education").append(HTMLschoolStart);
+    $(".education-entry:last").append((HTMLschoolName.replace("%data%", education.schools[i].name))+(HTMLschoolDegree.replace("%data%", education.schools[i].degree)));
+    $(".education-entry:last").append((HTMLschoolDates.replace("%data%", education.schools[i].dates)));
+    $(".education-entry:last").append((HTMLschoolLocation.replace("%data%", education.schools[i].location)));
+    $(".education-entry:last").append((HTMLschoolMajor.replace("%data%", education.schools[i].majors)));
+  };
+  if (education.onlineCourses.length > 0) {
+    $(".education-entry:last").append(HTMLonlineClasses);
+    for (var i = 0; i < education.onlineCourses.length; i++) {
+      $(".education-entry:last").append((HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title)));
+    }
+  }
+}
+
 // Actually construct the page
 
 bio.display();
@@ -141,6 +157,8 @@ bio.display();
 work.display();
 
 projects.display();
+
+education.display();
 
 $(document).click(function(loc) {
   //console.log(loc.data);
