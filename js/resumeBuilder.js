@@ -30,7 +30,7 @@ var work = {
     {
       "employer": "EMC Smarts",
       "title": "Solutions Architect",
-      // Makes map look more interesting than saying UK. Would be better to change locationFinder in helper,js to deal with multiple l.,ocations per job
+      // Makes map look more interesting than saying UK. Would be better to change locationFinder in helper.js to deal with multiple l.,ocations per job
       "location": "Europe",
       "dates": "2007 - 2010",
       "description": "Solution design and implementation for a wide range of European Telcos and Large Enterprises as part of EMC SMARTS Professional Services."
@@ -81,13 +81,13 @@ var education = {
       "title": "Front-End Web Developer Nanodegree",
       "school": "Udacity",
       "dates": "2016 - 2017",
-      "url": "www.udacity.com"
+      "url": "http://www.udacity.com"
     },
     {
       "title": "Intro to Computer Science",
       "school": "Udacity",
       "dates": "2012 - 2013",
-      "url": "www.udacity.com"
+      "url": "http://www.udacity.com"
     }
   ]
 };
@@ -147,9 +147,11 @@ education.display = function() {
   }
   if (education.onlineCourses.length > 0) {
     $("#education").append(HTMLonlineClasses);
-    $("#education").append(HTMLschoolStart);
     for (var i = 0; i < education.onlineCourses.length; i++) {
-      $(".education-entry:last").append((HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title)));
+      $("#education").append(HTMLschoolStart);
+      $(".education-entry:last").append((HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title)) + (HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school)));
+      $(".education-entry:last").append((HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates)));
+      $(".education-entry:last").append((HTMLonlineURL.replace("%data%", education.onlineCourses[i].url)));
     }
   }
 };
