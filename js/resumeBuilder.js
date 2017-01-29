@@ -98,7 +98,9 @@ var education = {
 };
 
 
-console.log(projects.projectEntry[0]);
+// Now, the display functions
+
+//console.log(projects.projectEntry[0]);
 projects.display = function() {
   for(var i = 0; i < projects.projectEntry.length; i++) {
     $("#projects").append(HTMLprojectStart);
@@ -108,20 +110,11 @@ projects.display = function() {
     for(var j = 0; j < projects.projectEntry[i].images.length; j++) {
       $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projectEntry[i].images[j]));
     }
-    console.log(projects.projectEntry[i].title);
+    //console.log(projects.projectEntry[i].title);
   }
 }
 
-// Need this line, or nothing gets displayed due to lack of h1 tag
-
-$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
-
-if (bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
-  $("#skills").append(HTMLskills.replace("%data%", bio.skills));
-}
-
-function displayWork() {
+work.display = function() {
   for (var i = 0; i < work.jobs.length; i++) {
       $("#workExperience").append(HTMLworkStart);
       $(".work-entry:last").append((HTMLworkEmployer.replace("%data%", work.jobs[i].employer))+(HTMLworkTitle.replace("%data%", work.jobs[i].title)));
@@ -131,7 +124,21 @@ function displayWork() {
   }
 }
 
-displayWork();
+bio.display = function() {
+  // Need this line, or nothing gets displayed due to lack of h1 tag
+  $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+
+  if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    $("#skills").append(HTMLskills.replace("%data%", bio.skills));
+  }
+}
+
+// Actually construct the page
+
+bio.display();
+
+work.display();
 
 projects.display();
 
