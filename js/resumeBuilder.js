@@ -172,26 +172,6 @@ $(document).click(function(loc) {
   logClicks(loc.pageX, loc.pageY);
 });
 
-// Internationalize button
-$("#main").append(internationalizeButton);
-
-function inName(oldName) {
-  //trim removes whitespace at fornt and back
-  var finalName = oldName.trim();
-  //console.log(finalName);
-  finalName = oldName.toUpperCase();
-  var names= finalName.split(" ");
-  //console.log(names);
-  capital = names[0].slice(0,1);
-  names[0] = names[0].slice(1);
-  //console.log(names[0]);
-  names[0] = names[0].toLowerCase();
-  names = capital + names[0] + " " +names[1];
-  return names;
-};
-
-inName(bio.name);
-
 // googlemaps mashup ! Every mashup MUST use Googlemaps !
 
 $("#mapDiv").append(googleMap);
