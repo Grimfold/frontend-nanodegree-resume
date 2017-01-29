@@ -10,15 +10,14 @@ var bio = {
     "twitter" : "@mlljuk",
     "location" : "UK"
   },
+  "welcomeMessage" : "Some notes about myself, for the purposes of Udacity Front End Developer course",
   "skills" : [
     "Networks & Systems Integration",
     "Network Management & OSS",
     "PS Team Building & Mentoring",
     "Pragmatic Web Development"
   ],
-  "welcomeMessage" : "Some notes about myself, for the purposes of Udacity Front End Developer course",
   "biopic" : "./images/portrait-small.jpg",
-
 };
 
 var work = {
@@ -67,17 +66,17 @@ var education = {
     {
       "name": "University College London",
       "location": "London",
-      "qualification": "BSc",
-      "subject": ["Astrophysics"],
-      "graduation": "1993",
+      "degree": "BSc",
+      "majors": ["Astrophysics"],
+      "dates": "1990 - 1993",
       "url": "http://www.ucl.ac.uk/"
     },
     {
       "name": "Gorseinon Tertiary College",
       "location": "Swansea",
-      "qualification": "A Levels",
-      "subject": ["Physics", "Applied Mathematics", "Pure Mathematics"],
-      "graduation": "1990",
+      "degree": "A Levels",
+      "majors": ["Physics", "Applied Mathematics", "Pure Mathematics"],
+      "dates": "1988 - 1990",
       "url": "http://www.gcs.ac.uk/"
     }
   ],
