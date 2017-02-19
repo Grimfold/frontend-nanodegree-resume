@@ -16,7 +16,7 @@ var bio = {
     "PS Team Building & Mentoring",
     "Pragmatic Web Development"
   ],
-  "biopic": "./images/portrait-small.jpg",
+  "biopic": "./images/portrait-small.jpg"
 };
 
 var work = {
@@ -122,6 +122,9 @@ work.display = function() {
 bio.display = function() {
   // Need this line, or nothing gets displayed due to lack of h1 tag
   $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+  $("#header").append(HTMLheaderRole.replace("%data%", bio.role));
+  $("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
+  $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
 
   if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
