@@ -135,13 +135,13 @@ bio.display = function() {
     $("#skills").append(HTMLskills.replace(data, bio.skills[i]));
   }
 
-  $("#footerContacts").append(HTMLmobile.replace(data, bio.contacts.mobile));
-  $("#footerContacts").append(HTMLemail.replace(data, bio.contacts.email));
-  $("#footerContacts").append(HTMLgithub.replace(data, bio.contacts.github));
+  $("#topContacts, #footerContacts").append(HTMLmobile.replace(data, bio.contacts.mobile));
+  $("#topContacts, #footerContacts").append(HTMLemail.replace(data, bio.contacts.email));
+  $("#topContacts, #footerContacts").append(HTMLgithub.replace(data, bio.contacts.github));
   if (bio.contacts.twitter.length > 0) {
-    $("#footerContacts").append(HTMLtwitter.replace(data, bio.contacts.twitter));
+    $("#topContacts, #footerContacts").append(HTMLtwitter.replace(data, bio.contacts.twitter));
   }
-  $("#footerContacts").append(HTMLlocation.replace(data, bio.contacts.location));
+  $("#topContacts, #footerContacts").append(HTMLlocation.replace(data, bio.contacts.location));
 };
 
 education.display = function() {
