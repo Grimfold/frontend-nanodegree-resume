@@ -39,7 +39,7 @@ var work = {
 };
 
 var projects = {
-  "projectEntry": [{
+  "projects": [{
       "title": "Time Travel Project",
       "dates": "2100 - 2120",
       "description": "Time Machine Built",
@@ -95,17 +95,17 @@ var education = {
 
 // Now, the display functions
 
-//console.log(projects.projectEntry[0]);
+//console.log(projects.projects[0]);
 projects.display = function() {
-  for (var i = 0; i < projects.projectEntry.length; i++) {
+  for (var i = 0; i < projects.projects.length; i++) {
     $("#projects").append(HTMLprojectStart);
-    $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projectEntry[i].title));
-    $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projectEntry[i].dates));
-    $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projectEntry[i].description));
-    for (var j = 0; j < projects.projectEntry[i].images.length; j++) {
-      $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projectEntry[i].images[j]));
+    $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projects[i].title));
+    $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[i].dates));
+    $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[i].description));
+    for (var j = 0; j < projects.projects[i].images.length; j++) {
+      $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[i].images[j]));
     }
-    //console.log(projects.projectEntry[i].title);
+    //console.log(projects.projects[i].title);
   }
 };
 
